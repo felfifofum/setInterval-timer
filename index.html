@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <button id="start-btn">Start Timer</button>
+      <button id="stop-btn">Pause Timer</button>
+    </main>
+
+    <footer></footer>
+
+    <script>
+      document.title = "SetInterval Stopwatch";
+
+      //header
+      const header = document.querySelector("header");
+      const h2 = document.createElement("h2");
+      h2.innerText = "setInterval() Stopwatch Practice";
+      header.appendChild(h2);
+
+      //main
+      const main = document.querySelector("main");
+      const p2 = document.createElement("p");
+      p2.innerText = 0;
+      p2.id = "label";
+      main.appendChild(p2);
+
+      let count = 0;
+      let intervalID;
+
+      const startBtn = document.getElementById("start-btn");
+      startBtn.addEventListener("click", function () {
+        intervalID = setInterval(function () {
+          count += 1;
+          p2.textContent = count;
+          p2.innerHTML = count;
+        }, 1000);
+      });
+
+      const stopBtn = document.getElementById("stop-btn");
+      stopBtn.addEventListener("click", () => {
+        clearInterval(intervalID)
+      });
+
+      //footer
+      const footer = document.querySelector("footer");
+      const p = document.createElement("p");
+      p.innerText = "By Felicity Bruce";
+      footer.appendChild(p);
+    </script>
+  </body>
+</html>
